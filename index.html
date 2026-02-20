@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Arena | Clean Energy</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Grenze+Gotisch:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Grenze+Gotisch:wght@400;700&family=Anton&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -12,7 +12,7 @@
     <header class="site-header">
         <div class="brand-row">
             <div class="brand">
-                <span class="brand-name">Arena</span>
+                <span class="brand-name">ARENA</span>
                 <span class="brand-tagline">Clean Energy</span>
             </div>
             <div class="fruit-strip">
@@ -121,15 +121,15 @@
     <section class="flavors" id="flavors">
         <h2 class="reveal">Our Flavors</h2>
         <div class="flavors-grid">
-            <div class="flavor-card reveal">
+            <div class="flavor-card flavor-strawberry reveal">
                 <img src="images/strawberry-splash.png" alt="Arena Strawberry Splash can">
                 <h3>Strawberry Splash</h3>
             </div>
-            <div class="flavor-card reveal">
+            <div class="flavor-card flavor-pineapple reveal">
                 <img src="images/pineapple-punch.png" alt="Arena Pineapple Punch can">
                 <h3>Pineapple Punch</h3>
             </div>
-            <div class="flavor-card reveal">
+            <div class="flavor-card flavor-mango reveal">
                 <img src="images/mango-tango.png" alt="Arena Mango Tango can">
                 <h3>Mango Tango</h3>
             </div>
@@ -161,6 +161,8 @@
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('visible');
+          } else {
+            entry.target.classList.remove('visible');
           }
         });
       }, { threshold: 0.15 });
