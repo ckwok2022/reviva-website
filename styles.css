@@ -12,17 +12,28 @@
     font-family: 'Poppins', sans-serif;
     background-color: #FEFAE0;
     color: #3D3D3D;
+    opacity: 0;
+    animation: pageLoad 0.6s ease-out 0.2s forwards;
+  }
+
+  @keyframes pageLoad {
+    to { opacity: 1; }
   }
 
   /* Site header / brand */
   .site-header {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 100;
     pointer-events: none;
     background-color: #FEFAE0;
+    transition: box-shadow 0.3s;
+  }
+
+  .site-header.scrolled {
+    box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
   }
 
   .brand-row {
@@ -474,6 +485,64 @@
     color: #E63329;
   }
 
+  /* Benefits / What's Inside */
+  .benefits {
+    padding: 80px 24px;
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .benefits h2 {
+    font-family: 'Anton', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #E63329;
+    margin-bottom: 48px;
+  }
+
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  .benefit-card {
+    background: #fff;
+    border-radius: 20px;
+    padding: 32px 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s;
+  }
+
+  .benefit-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+  }
+
+  .benefit-icon {
+    font-size: 2.2rem;
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .benefit-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #3D3D3D;
+    margin-bottom: 8px;
+  }
+
+  .benefit-card p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    color: #6B6B6B;
+    line-height: 1.6;
+  }
+
   .flavors {
     padding: 80px 24px;
     text-align: center;
@@ -583,6 +652,272 @@
   tbody tr.reveal:nth-child(2) { transition-delay: 0.1s; }
   tbody tr.reveal:nth-child(3) { transition-delay: 0.2s; }
   tbody tr.reveal:nth-child(4) { transition-delay: 0.3s; }
+
+  /* Footer */
+  .site-footer {
+    background: #3D3D3D;
+    color: #fff;
+    padding: 48px 24px 0;
+    margin-top: 48px;
+  }
+
+  .footer-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .footer-brand .brand-name {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .footer-brand p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .footer-links a {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover {
+    color: #fff;
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 16px;
+  }
+
+  .social-link {
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.2s, transform 0.2s;
+  }
+
+  .social-link:hover {
+    color: #E63329;
+    transform: scale(1.15);
+  }
+
+  .footer-bottom {
+    text-align: center;
+    padding: 24px 0;
+    margin-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .footer-bottom p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.4);
+  }
+
+  /* ===== Responsive / Mobile ===== */
+  @media (max-width: 768px) {
+    .brand-row {
+      padding: 10px 16px;
+      gap: 12px;
+    }
+
+    .brand-name {
+      font-size: 2.2rem;
+    }
+
+    .brand-tagline {
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+    }
+
+    .fruit-strip {
+      gap: 10px;
+    }
+
+    .fruit-strip img {
+      height: 22px;
+    }
+
+    .marquee-track span {
+      font-size: 0.75rem;
+      padding: 0 24px;
+    }
+
+    .hero {
+      min-height: 80vh;
+      padding: 0 16px 32px;
+    }
+
+    .carousel {
+      margin-top: 50px;
+    }
+
+    .carousel-slides {
+      height: 50vh;
+    }
+
+    .carousel-btn {
+      width: 36px;
+      height: 36px;
+      font-size: 1.8rem;
+    }
+
+    .carousel-prev { left: 8px; }
+    .carousel-next { right: 8px; }
+
+    .hero-cta {
+      padding: 14px 32px;
+      font-size: 0.9rem;
+    }
+
+    .why-arena {
+      padding: 48px 16px;
+      margin: 0 8px 12px;
+      border-radius: 20px;
+    }
+
+    .why-arena h2,
+    .flavors h2,
+    .benefits h2 {
+      font-size: 1.8rem;
+    }
+
+    .benefits {
+      padding: 48px 16px;
+    }
+
+    .benefits-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    th, td {
+      padding: 12px 10px;
+      font-size: 0.8rem;
+    }
+
+    thead th {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      padding: 14px 10px;
+    }
+
+    .why-message {
+      grid-template-columns: 1fr;
+      gap: 24px;
+      margin-top: 36px;
+    }
+
+    .why-message p:first-child {
+      font-size: 1.3rem;
+    }
+
+    .why-message p:nth-child(2) {
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    .why-message .hashtag {
+      font-size: 1.8rem;
+    }
+
+    .flavors {
+      padding: 48px 16px;
+      margin: 0 8px;
+      border-radius: 20px;
+    }
+
+    .flavors-grid {
+      gap: 20px;
+    }
+
+    .flavor-card {
+      min-width: 200px;
+      max-width: 100%;
+      padding: 16px;
+    }
+
+    .flavor-card img {
+      height: 250px;
+    }
+
+    .flavor-card h3 {
+      font-size: 1.3rem;
+    }
+
+    .footer-content {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 24px;
+    }
+
+    .footer-links {
+      flex-direction: row;
+      gap: 24px;
+    }
+
+    .site-footer {
+      padding: 36px 16px 0;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .brand-name {
+      font-size: 1.8rem;
+    }
+
+    .fruit-strip img {
+      height: 18px;
+    }
+
+    .fruit-strip {
+      gap: 8px;
+    }
+
+    .carousel-slides {
+      height: 40vh;
+    }
+
+    .hero-cta {
+      padding: 12px 28px;
+      font-size: 0.85rem;
+    }
+
+    .why-arena h2,
+    .flavors h2,
+    .benefits h2 {
+      font-size: 1.5rem;
+    }
+
+    .benefits-grid {
+      grid-template-columns: 1fr;
+    }
+
+    th, td {
+      padding: 10px 8px;
+      font-size: 0.75rem;
+    }
+
+    .flavor-card img {
+      height: 200px;
+    }
+  }
 
   /* Kit/ConvertKit popup form font overrides */
   .formkit-form[data-uid="e4d9ce2c01"] {
