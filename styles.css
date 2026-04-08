@@ -151,7 +151,7 @@
 
   .brand-tagline {
     font-family: 'Florida Vibes', cursive;
-    font-size: 1.1rem;
+    font-size: 1.4rem;
     font-weight: 400;
     letter-spacing: 1px;
     color: #FFC7F8;
@@ -208,7 +208,7 @@
   .marquee-track {
     display: flex;
     width: max-content;
-    animation: marquee 10s linear infinite;
+    will-change: transform;
   }
 
   .marquee-track span {
@@ -499,13 +499,90 @@
   }
 
   .hero-video-fullscreen video {
-    width: 40vw;
-    max-width: 480px;
-    min-width: 280px;
-    height: auto;
-    border-radius: 16px;
     display: block;
+    width: auto;
+    height: calc(100vh - 180px);
+    max-width: 90vw;
+    margin: 0 auto;
+    border-radius: 16px;
+    object-fit: contain;
     box-shadow: 0 6px 32px rgba(43, 178, 255, 0.15);
+  }
+
+  /* Waitlist CTA — overlaid at bottom of video section */
+  .hero-video-fullscreen {
+    position: relative;
+  }
+
+  .video-cta-bar {
+    position: absolute;
+    bottom: 48px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+  }
+
+  .video-cta-bar.visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .video-cta-label {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 0.95rem;
+    color: #fff;
+    letter-spacing: 0.5px;
+    margin: 0;
+    text-align: center;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.35);
+  }
+
+  .video-cta-btn {
+    display: inline-block;
+    padding: 16px 44px;
+    background-color: #2BB2FF;
+    color: #fff;
+    border-radius: 50px;
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-weight: 600;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(43, 178, 255, 0.45);
+    transition: background-color 0.3s, box-shadow 0.3s;
+  }
+
+  .video-cta-bar.visible .video-cta-btn {
+    animation: ctaBounceIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards,
+               ctaFloat 2.8s ease-in-out 0.7s infinite;
+  }
+
+  .video-cta-btn:hover {
+    background-color: #1e9ee6;
+    box-shadow: 0 8px 28px rgba(43, 178, 255, 0.55);
+  }
+
+  .video-cta-btn:active {
+    transform: scale(0.97);
+  }
+
+  @keyframes ctaBounceIn {
+    0%   { opacity: 0; transform: translateY(24px) scale(0.88); }
+    60%  { opacity: 1; transform: translateY(-10px) scale(1.06); }
+    80%  { transform: translateY(5px) scale(0.98); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  @keyframes ctaFloat {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-8px); }
   }
 
   /* Wave divider */
@@ -519,7 +596,7 @@
 
   .why-arena {
     scroll-margin-top: 110px;
-    padding: 80px 24px;
+    padding: 48px 24px 40px;
     text-align: center;
     background-color: #ffffff;
     border-radius: 28px;
@@ -536,7 +613,7 @@
     height: 4px;
     background: linear-gradient(90deg, #2BB2FF, #FFC7F8, #FDC01A);
     border-radius: 4px;
-    margin: 48px auto 0;
+    margin: 24px auto 0;
     opacity: 0.6;
   }
 
@@ -547,7 +624,7 @@
     letter-spacing: 1px;
     text-transform: uppercase;
     color: #2BB2FF;
-    margin-bottom: 40px;
+    margin-bottom: 24px;
     display: inline-block;
     border-bottom: 4px solid #FFC7F8;
     padding-bottom: 8px;
@@ -566,7 +643,7 @@
   }
 
   th, td {
-    padding: 18px 28px;
+    padding: 12px 24px;
     text-align: center;
     font-size: 0.95rem;
     line-height: 1.5;
@@ -585,7 +662,7 @@
     text-transform: uppercase;
     background: #2BB2FF;
     color: #ffffff;
-    padding: 20px 28px;
+    padding: 12px 24px;
   }
 
   thead th:first-child {
@@ -637,7 +714,7 @@
 
   .why-message {
     max-width: 1000px;
-    margin: 56px auto 0;
+    margin: 28px auto 0;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
@@ -1050,18 +1127,57 @@
 
   /* ===== Responsive / Mobile ===== */
   @media (max-width: 768px) {
+    /* Header */
     .brand-row {
-      padding: 10px 16px;
+      padding: 8px 16px;
       gap: 12px;
     }
 
     .brand-name {
-      font-size: 2.2rem;
+      font-size: 1.8rem;
     }
 
     .brand-tagline {
-      font-size: 0.7rem;
-      letter-spacing: 2px;
+      font-size: 0.65rem;
+      letter-spacing: 1.5px;
+    }
+
+    .header-nav {
+      gap: 16px;
+    }
+
+    .header-nav a {
+      font-size: 0.65rem;
+      letter-spacing: 1.5px;
+    }
+
+    /* Video */
+    .hero-video-fullscreen {
+      margin-top: 78px;
+      padding: 16px 0 12px;
+    }
+
+    .hero-video-fullscreen video {
+      height: calc(100vh - 130px);
+      max-width: 95vw;
+      border-radius: 12px;
+    }
+
+    .video-cta-bar {
+      bottom: 20px;
+      width: 88%;
+      gap: 10px;
+    }
+
+    .video-cta-label {
+      font-size: 0.82rem;
+    }
+
+    .video-cta-btn {
+      padding: 13px 28px;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      white-space: nowrap;
     }
 
     .fruit-strip {
@@ -1206,11 +1322,30 @@
     .site-footer {
       padding: 36px 16px 0;
     }
+
+    /* Ingredients page */
+    .ingredients-page {
+      padding: 180px 24px 60px;
+    }
+
+    .ingredients-title {
+      font-size: 2.2rem;
+    }
   }
 
   @media (max-width: 480px) {
     .brand-name {
-      font-size: 1.8rem;
+      font-size: 1.5rem;
+    }
+
+    .brand-tagline {
+      font-size: 0.6rem;
+      letter-spacing: 1px;
+    }
+
+    /* Hide nav links on very small screens — logo stays */
+    .header-nav {
+      display: none;
     }
 
     .fruit-strip img {
@@ -1219,6 +1354,32 @@
 
     .fruit-strip {
       gap: 8px;
+    }
+
+    /* Video */
+    .hero-video-fullscreen {
+      margin-top: 70px;
+      padding: 10px 0 8px;
+    }
+
+    .hero-video-fullscreen video {
+      height: calc(100vh - 110px);
+      max-width: 98vw;
+      border-radius: 10px;
+    }
+
+    .video-cta-bar {
+      bottom: 16px;
+      width: 92%;
+    }
+
+    .video-cta-label {
+      font-size: 0.78rem;
+    }
+
+    .video-cta-btn {
+      padding: 12px 24px;
+      font-size: 0.8rem;
     }
 
     .hero-headline {
@@ -1251,6 +1412,15 @@
 
     .flavor-card img {
       height: 200px;
+    }
+
+    /* Ingredients page */
+    .ingredients-page {
+      padding: 160px 20px 60px;
+    }
+
+    .ingredients-title {
+      font-size: 2rem;
     }
   }
 

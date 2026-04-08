@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What's Inside | Arena Clean Energy</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <meta name="description" content="Arena Clean Energy — see exactly what's in every can. Real ingredients, nothing artificial.">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@900&family=Josefin+Sans:wght@400;600;700&family=Cormorant+SC:wght@300;400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=21">
+  <style>
+    .ingredients-page {
+      min-height: 100vh;
+      padding: 200px 40px 80px;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .ingredients-title {
+      font-family: 'Cormorant SC', serif;
+      font-size: 3rem;
+      color: #2d2d2d;
+      margin: 0 0 16px;
+      text-align: center;
+    }
+    .ingredients-subtitle {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-size: 1rem;
+      color: #8B7355;
+      text-align: center;
+      margin: 0 0 64px;
+    }
+    .ingredients-content {
+      width: 100%;
+      max-width: 800px;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="brand-row">
+      <div class="brand">
+        <a href="index.html" style="text-decoration:none;">
+          <span class="brand-name">ARENA CO.</span>
+          <span class="brand-tagline">Sip the good life</span>
+        </a>
+      </div>
+      <nav class="header-nav">
+        <a href="index.html#why-arena">About</a>
+        <a href="index.html#flavors">Flavors</a>
+        <a href="index.html#benefits">Benefits</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+    </div>
+    <div class="marquee-banner">
+      <div class="marquee-track">
+        <span>Coming Soon</span><span class="marquee-star">✦</span>
+        <span>Coming Soon</span><span class="marquee-star">✦</span>
+        <span>Coming Soon</span><span class="marquee-star">✦</span>
+        <span>Coming Soon</span><span class="marquee-star">✦</span>
+        <span>Coming Soon</span><span class="marquee-star">✦</span>
+        <span>Coming Soon</span><span class="marquee-star">✦</span>
+        <span>Coming Soon</span><span class="marquee-star">✦</span>
+        <span>Coming Soon</span><span class="marquee-star">✦</span>
+        <span>Coming Soon</span><span class="marquee-star">✦</span>
+        <span>Coming Soon</span><span class="marquee-star">✦</span>
+        <span>Coming Soon</span><span class="marquee-star">✦</span>
+        <span>Coming Soon</span><span class="marquee-star">✦</span>
+        <span>Coming Soon</span><span class="marquee-star">✦</span>
+        <span>Coming Soon</span><span class="marquee-star">✦</span>
+        <span>Coming Soon</span><span class="marquee-star">✦</span>
+        <span>Coming Soon</span><span class="marquee-star">✦</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="ingredients-page">
+    <h1 class="ingredients-title">What's Inside</h1>
+    <p class="ingredients-subtitle">Real ingredients. Nothing artificial. Ever.</p>
+    <div class="ingredients-content">
+      <!-- Drop your info sheet content here -->
+    </div>
+  </div>
+
+  <script>
+    // Sticky header shadow on scroll
+    const header = document.querySelector('.site-header');
+    window.addEventListener('scroll', () => {
+      header.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // Marquee animation
+    const marqueeTrack = document.querySelector('.marquee-track');
+    document.fonts.ready.then(() => {
+      const origItems = Array.from(marqueeTrack.children);
+      const origWidth = marqueeTrack.scrollWidth;
+      while (marqueeTrack.scrollWidth < window.innerWidth * 3) {
+        origItems.forEach(child => marqueeTrack.appendChild(child.cloneNode(true)));
+      }
+      let marqueeOffset = 0;
+      let lastTs = null;
+      function animateMarquee(ts) {
+        if (lastTs !== null) {
+          marqueeOffset -= (origWidth / 25000) * (ts - lastTs);
+          if (marqueeOffset <= -origWidth) marqueeOffset += origWidth;
+          marqueeTrack.style.transform = `translateX(${marqueeOffset}px)`;
+        }
+        lastTs = ts;
+        requestAnimationFrame(animateMarquee);
+      }
+      requestAnimationFrame(animateMarquee);
+    });
+  </script>
+
+</body>
+</html>
