@@ -199,10 +199,12 @@
   .marquee-banner {
     width: 100%;
     overflow: hidden;
-    background-color: #f5f0e8;
+    background: linear-gradient(90deg, #f5f0e8 0%, #efe8d8 50%, #f5f0e8 100%);
     color: #8B7355;
-    padding: 18px 0;
+    padding: 14px 0;
     pointer-events: auto;
+    border-top: 1px solid rgba(139, 115, 85, 0.15);
+    border-bottom: 1px solid rgba(139, 115, 85, 0.15);
   }
 
   .marquee-track {
@@ -495,7 +497,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #fff;
+    background: linear-gradient(180deg, #fff 0%, #f9f6f0 100%);
   }
 
   .hero-video-fullscreen video {
@@ -615,6 +617,18 @@
     border-radius: 4px;
     margin: 24px auto 0;
     opacity: 0.6;
+  }
+
+  .section-subhead {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #8B7355;
+    display: block;
+    margin-top: -8px;
+    margin-bottom: 32px;
   }
 
   .why-arena h2 {
@@ -767,7 +781,7 @@
     scroll-margin-top: 110px;
     padding: 80px 24px;
     text-align: center;
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 0 auto;
   }
 
@@ -787,51 +801,78 @@
   .benefits-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
+    gap: 20px;
   }
 
   .benefit-card {
-    background: #fff;
-    border-radius: 20px;
-    padding: 32px 20px;
+    background: linear-gradient(145deg, #fff 60%, #f5f0e8 100%);
+    border-radius: 24px;
+    padding: 36px 20px 28px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
     transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s;
+    border: 1px solid rgba(43, 178, 255, 0.08);
   }
 
   .benefit-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 32px rgba(43, 178, 255, 0.14);
+    border-color: rgba(43, 178, 255, 0.2);
   }
 
   .benefit-icon {
-    font-size: 2.2rem;
-    display: block;
-    margin-bottom: 16px;
+    font-size: 2.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    background: rgba(43, 178, 255, 0.08);
+    border-radius: 50%;
+    margin: 0 auto 18px;
   }
 
   .benefit-card h3 {
-    font-family: 'Libre Baskerville', Georgia, serif;
-    font-size: 1rem;
-    font-weight: 700;
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
     color: #3D3D3D;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
   }
 
   .benefit-card p {
     font-family: 'Libre Baskerville', Georgia, serif;
-    font-size: 0.85rem;
+    font-size: 0.82rem;
     color: #6B6B6B;
-    line-height: 1.6;
+    line-height: 1.65;
   }
 
   .flavors {
     scroll-margin-top: 110px;
     padding: 80px 24px;
     text-align: center;
-    background-color: #ffffff;
+    background: linear-gradient(160deg, #f5f0e8 0%, #fff 60%);
     border-radius: 28px;
     box-shadow: 0 6px 24px rgba(0, 0, 0, 0.06);
     margin: 0 16px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .flavors::before {
+    content: 'FLAVORS';
+    position: absolute;
+    top: -10px;
+    right: -20px;
+    font-family: 'Barlow', sans-serif;
+    font-size: 10rem;
+    font-weight: 900;
+    color: rgba(43, 178, 255, 0.04);
+    letter-spacing: -4px;
+    pointer-events: none;
+    user-select: none;
+    line-height: 1;
   }
 
   .flavors h2 {
@@ -841,34 +882,129 @@
     letter-spacing: 1px;
     text-transform: uppercase;
     color: #2BB2FF;
-    margin-bottom: 48px;
+    margin-bottom: 12px;
     display: inline-block;
     border-bottom: 4px solid #FFC7F8;
     padding-bottom: 8px;
   }
 
+  .flavors-subhead {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #8B7355;
+    display: block;
+    margin-top: -8px;
+    margin-bottom: 40px;
+  }
+
   .flavors-grid {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 40px;
-    max-width: 1000px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    max-width: 900px;
     margin: 0 auto;
-    flex-wrap: wrap;
+    align-items: stretch;
+  }
+
+  .flavors-teaser-col {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
 
   .flavor-card {
-    flex: 1;
-    min-width: 250px;
-    max-width: 300px;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: #fff;
+    border-radius: 24px;
+    padding: 36px 24px 28px;
+    position: relative;
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s;
+  }
+
+  /* Hero flavor fills the full left column height */
+  .flavor-card.flavor-hero {
+    height: 100%;
+    justify-content: center;
+  }
+
+  .flavor-card.flavor-hero .flavor-icon {
+    width: 140px;
+    height: 140px;
+    font-size: 5.5rem;
+  }
+
+  .flavor-card.flavor-hero h3 {
+    font-size: 1.7rem;
+  }
+
+  .flavor-card.flavor-hero .flavor-desc {
+    max-width: 260px;
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+
+  /* Teaser cards are muted */
+  .flavor-card.flavor-teaser {
+    opacity: 0.75;
+    filter: saturate(0.6);
+    cursor: default;
+  }
+
+  .flavor-card.flavor-teaser:hover {
+    opacity: 0.9;
+    filter: saturate(0.8);
+    transform: translateY(-4px);
+  }
+
+  .flavor-card.flavor-teaser .flavor-icon {
+    font-size: 3rem;
+    width: 80px;
+    height: 80px;
+  }
+
+  /* Badges */
+  .flavor-badge {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 5px 14px;
     border-radius: 20px;
-    padding: 20px;
-    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s, background 0.3s;
+    margin-bottom: 20px;
+    display: inline-block;
+  }
+
+  .badge-now {
+    background: #2BB2FF;
+    color: #fff;
+    box-shadow: 0 2px 12px rgba(43, 178, 255, 0.35);
+  }
+
+  .badge-soon {
+    background: rgba(139, 115, 85, 0.12);
+    color: #8B7355;
+    border: 1px solid rgba(139, 115, 85, 0.25);
+  }
+
+  .flavor-card.flavor-strawberry {
+    background: linear-gradient(145deg, #fff5f5 0%, #ffe0e0 100%);
+    box-shadow: 0 4px 24px rgba(232, 130, 130, 0.2);
+  }
+
+  .flavor-card.flavor-pineapple {
+    background: linear-gradient(145deg, #fffdf0 0%, #fff3c0 100%);
+    box-shadow: 0 4px 24px rgba(240, 184, 64, 0.15);
+  }
+
+  .flavor-card.flavor-mango {
+    background: linear-gradient(145deg, #fff8f0 0%, #ffe5c0 100%);
+    box-shadow: 0 4px 24px rgba(232, 148, 60, 0.15);
   }
 
   .flavor-card img {
@@ -879,47 +1015,34 @@
     margin-bottom: 16px;
   }
 
-  /* Glass bottle placeholder — shown until real product photos are ready */
-  .bottle-placeholder {
-    width: 110px;
-    height: 320px;
-    margin-bottom: 16px;
-    border-radius: 50px 50px 20px 20px;
-    background: linear-gradient(160deg, rgba(255,255,255,0.9) 0%, rgba(199,237,255,0.5) 50%, rgba(255,255,255,0.7) 100%);
-    border: 1.5px solid rgba(43, 178, 255, 0.25);
-    box-shadow: inset -8px 0 16px rgba(255,255,255,0.6), inset 4px 0 12px rgba(43,178,255,0.1), 0 8px 24px rgba(43,178,255,0.12);
+  .flavor-icon {
+    font-size: 4.5rem;
+    margin-bottom: 20px;
+    line-height: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-    backdrop-filter: blur(4px);
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.7);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s;
   }
 
-  .bottle-placeholder::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 30px;
-    height: 24px;
-    background: rgba(43, 178, 255, 0.15);
-    border-radius: 6px 6px 0 0;
-    border: 1.5px solid rgba(43, 178, 255, 0.2);
-    border-bottom: none;
+  .flavor-card:hover .flavor-icon {
+    transform: scale(1.12) rotate(-5deg);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
   }
 
-  .bottle-label-text {
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 0.6rem;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #2BB2FF;
-    writing-mode: vertical-rl;
-    text-orientation: mixed;
-    transform: rotate(180deg);
-    opacity: 0.8;
+  .flavor-card p.flavor-desc {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 0.82rem;
+    color: #6B6B6B;
+    line-height: 1.65;
+    margin-top: 8px;
+    max-width: 220px;
+    transition: color 0.3s;
   }
 
   .flavors-note {
@@ -967,43 +1090,35 @@
     text-shadow: 0 2px 12px rgba(0,0,0,0.3);
   }
 
-  .flavor-card:hover {
-    transform: translateY(-10px);
+  .flavor-card.flavor-hero:hover {
+    transform: translateY(-12px);
   }
 
   .flavor-card h3 {
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 1.6rem;
-    font-weight: 700;
+    font-family: 'Barlow', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #3D3D3D;
+    margin-bottom: 4px;
     transition: color 0.3s;
   }
 
-  /* Strawberry - pink */
-  .flavor-card.flavor-strawberry:hover {
-    background: #FDDCDA;
-    box-shadow: 0 12px 32px rgba(232, 130, 130, 0.3);
+  /* Strawberry */
+  .flavor-card.flavor-strawberry.flavor-hero:hover {
+    box-shadow: 0 20px 48px rgba(232, 130, 130, 0.35);
   }
-  .flavor-card.flavor-strawberry:hover h3 {
-    color: #D64550;
-  }
+  .flavor-card.flavor-strawberry h3 { color: #C0393E; }
+  .flavor-card.flavor-strawberry .flavor-icon { background: rgba(255,255,255,0.8); }
 
-  /* Pineapple - yellow */
-  .flavor-card.flavor-pineapple:hover {
-    background: #FFF5CC;
-    box-shadow: 0 12px 32px rgba(240, 184, 64, 0.3);
-  }
-  .flavor-card.flavor-pineapple:hover h3 {
-    color: #C9960A;
-  }
+  /* Pineapple */
+  .flavor-card.flavor-pineapple h3 { color: #A87800; }
+  .flavor-card.flavor-pineapple .flavor-icon { background: rgba(255,255,255,0.8); }
 
-  /* Mango - orange */
-  .flavor-card.flavor-mango:hover {
-    background: #FDEBD0;
-    box-shadow: 0 12px 32px rgba(232, 148, 60, 0.3);
-  }
-  .flavor-card.flavor-mango:hover h3 {
-    color: #D47E2A;
-  }
+  /* Mango */
+  .flavor-card.flavor-mango h3 { color: #B85F00; }
+  .flavor-card.flavor-mango .flavor-icon { background: rgba(255,255,255,0.8); }
 
   /* Scroll-triggered reveal */
   .reveal {
@@ -1244,6 +1359,11 @@
       font-size: 1.8rem;
     }
 
+    .section-subhead,
+    .flavors-subhead {
+      font-size: 1.2rem;
+    }
+
     .benefits {
       padding: 48px 16px;
     }
@@ -1290,13 +1410,26 @@
     }
 
     .flavors-grid {
+      grid-template-columns: 1fr;
       gap: 20px;
     }
 
+    .flavor-card.flavor-hero {
+      height: auto;
+    }
+
+    .flavor-card.flavor-hero .flavor-icon {
+      width: 100px;
+      height: 100px;
+      font-size: 4rem;
+    }
+
+    .flavor-card.flavor-hero h3 {
+      font-size: 1.4rem;
+    }
+
     .flavor-card {
-      min-width: 200px;
-      max-width: 100%;
-      padding: 16px;
+      padding: 28px 20px 22px;
     }
 
     .flavor-card img {
@@ -1304,7 +1437,11 @@
     }
 
     .flavor-card h3 {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
+    }
+
+    .flavor-card p.flavor-desc {
+      font-size: 0.78rem;
     }
 
     .footer-content {
