@@ -33,7 +33,19 @@
     }
     .ingredients-content {
       width: 100%;
-      max-width: 800px;
+      max-width: 960px;
+    }
+    .ingredients-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      align-items: center;
+    }
+    .ingredients-cards img {
+      width: 100%;
+      max-width: 680px;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.10);
     }
   </style>
 </head>
@@ -80,7 +92,10 @@
     <h1 class="ingredients-title">What's Inside</h1>
     <p class="ingredients-subtitle">Real ingredients. Nothing artificial. Ever.</p>
     <div class="ingredients-content">
-      <!-- Drop your info sheet content here -->
+      <div class="ingredients-cards">
+        <img src="images/ingredients-ours.png" alt="Why Arena Co. — our ingredients">
+        <img src="images/ingredients-theirs.png" alt="What other drinks use">
+      </div>
     </div>
   </div>
 
